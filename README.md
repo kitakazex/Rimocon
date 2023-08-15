@@ -1,4 +1,4 @@
-# Rimocon
+# Main
 
 ## 【実行結果】
 
