@@ -5,10 +5,9 @@ interface Device {
 
 // テレビクラス
 class Television implements Device {
-
     private int currentChannel;
 
-    public Television() {
+    private Television() {
         currentChannel = 1; // 初期チャンネル
     }
 
@@ -18,14 +17,17 @@ class Television implements Device {
         System.out.println("テレビのチャンネルを" + currentChannel + "に変更しました。");
         // チャンネルを変更する処理
     }
+
+    public static Television create() {
+        return new Television();
+    }
 }
 
 // エアコンクラス
 class AirConditioner implements Device {
-
     private int currentTemperature;
 
-    public AirConditioner() {
+    private AirConditioner() {
         currentTemperature = 25; // 初期温度
     }
 
@@ -35,12 +37,16 @@ class AirConditioner implements Device {
         System.out.println("エアコンの温度を" + currentTemperature + "度に変更しました。");
         // 温度を変更する処理
     }
+
+    public static AirConditioner create() {
+        return new AirConditioner();
+    }
 }
 
-class Rimocon {
+public class Rimocon {
     public static void main(String[] args) {
-        Device tv = new Television();
-        Device ac = new AirConditioner();
+        Device tv = Television.create();
+        Device ac = AirConditioner.create();
 
         tv.change();
         ac.change();
