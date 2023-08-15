@@ -22,7 +22,7 @@ class Television implements Device {
     @Override
     public void change() {
         currentChannel++;
-        System.out.println(getName() + "のチャンネルを" + currentChannel + "に変更しました。");
+        System.out.println("テレビのチャンネルを" + currentChannel + "に変更しました。");
         // チャンネルを変更する処理
     }
 }
@@ -45,7 +45,7 @@ class AirConditioner implements Device {
     @Override
     public void change() {
         currentTemperature--;
-        System.out.println(getName() + "の温度を" + currentTemperature + "度に変更しました。");
+        System.out.println("エアコンの温度を" + currentTemperature + "度に変更しました。");
         // 温度を変更する処理
     }
 }
@@ -58,10 +58,10 @@ class RemoteControl {
     }
 }
 
-class Rimocon {
+class Main{
     public static void main(String[] args) {
-        Television tv = new Television("テレビ");
-        AirConditioner ac = new AirConditioner("エアコン");
+        Device tv = new Television("テレビ");
+        Device ac = new AirConditioner("エアコン");
 
         RemoteControl remote = new RemoteControl();
         remote.adjust(tv);
