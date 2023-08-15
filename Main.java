@@ -1,22 +1,15 @@
 // デバイスのインターフェース
 interface Device {
-    String getName();
     void change();
 }
 
 // テレビクラス
 class Television implements Device {
-    private String name;
+
     private int currentChannel;
 
-    public Television(String name) {
-        this.name = name;
+    public Television() {
         currentChannel = 1; // 初期チャンネル
-    }
-
-    @Override
-    public String getName() {
-        return name;
     }
 
     @Override
@@ -29,17 +22,11 @@ class Television implements Device {
 
 // エアコンクラス
 class AirConditioner implements Device {
-    private String name;
+
     private int currentTemperature;
 
-    public AirConditioner(String name) {
-        this.name = name;
+    public AirConditioner() {
         currentTemperature = 25; // 初期温度
-    }
-
-    @Override
-    public String getName() {
-        return name;
     }
 
     @Override
@@ -50,21 +37,12 @@ class AirConditioner implements Device {
     }
 }
 
-// リモコンクラス
-class RemoteControl {
-    public void adjust(Device device) {
-        System.out.println("リモコンで" + device.getName() + "の状態を変更します。");
-        device.change();
-    }
-}
-
-class Main{
+class Rimocon {
     public static void main(String[] args) {
-        Device tv = new Television("テレビ");
-        Device ac = new AirConditioner("エアコン");
+        Device tv = new Television();
+        Device ac = new AirConditioner();
 
-        RemoteControl remote = new RemoteControl();
-        remote.adjust(tv);
-        remote.adjust(ac);
+        tv.change();
+        ac.change();
     }
 }
