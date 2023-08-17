@@ -43,7 +43,7 @@ class AirConditioner implements Device {
     }
 }
 
-public class Rimocon {
+class Rimocon {
     public static void main(String[] args) {
         Device tv = Television.create();
         Device ac = AirConditioner.create();
